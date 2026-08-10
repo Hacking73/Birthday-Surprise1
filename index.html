@@ -1,63 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Happy Birthday Jhili ❤️</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Happy Birthday Jhili ❤️</title>
+
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-  <div class="hearts"></div>
-  <div class="confetti" id="confetti"></div>
 
-  <main class="app">
-    <section class="hero" id="hero">
-      <p class="small-title">A Little Surprise For You ✨</p>
-      <h1>Happy Birthday, <span>Jhili</span> ❤️</h1>
-      <p class="subtitle">Today is all about your smile, your happiness and beautiful memories.</p>
+    <!-- Background Stars -->
+    <div class="stars"></div>
 
-      <div class="gift-wrap" id="giftWrap">
-        <img src="assets/gift.png" class="gift" alt="Birthday gift">
-      </div>
+    <!-- FIRST SCREEN -->
+    <section id="home">
 
-      <button class="primary-btn" id="openGift">🎁 Open Your Surprise</button>
-      <p class="hint">Tap the button to begin the birthday surprise 🎵</p>
+        <p class="small-text">
+            A SPECIAL SURPRISE FOR YOU
+        </p>
+
+        <h1>
+            Something Special
+            <br>
+            <span>Is Waiting For You...</span>
+        </h1>
+
+        <img src="gift.png" class="gift">
+
+        <h2>For Jhili ❤️</h2>
+
+        <button onclick="openGift()">
+            🎁 OPEN YOUR SURPRISE
+        </button>
+
     </section>
 
-    <section class="surprise hidden" id="surprise">
-      <div class="cake-card">
-        <p class="section-label">Make A Wish ✨</p>
-        <h2>One Special Cake For You 🎂</h2>
-        <div class="cake-area">
-          <img src="assets/candle-off.png" id="cake" class="cake" alt="Birthday cake">
+
+    <!-- BIRTHDAY SCREEN -->
+    <section id="birthday">
+
+        <p class="small-text">
+            THE SURPRISE HAS BEGUN ✨
+        </p>
+
+        <h1>
+            HAPPY BIRTHDAY
+            <br>
+            <span>JHILI ❤️</span>
+        </h1>
+
+        <!-- Cake -->
+        <img
+            src="candle-off.png"
+            id="cake"
+            class="cake"
+        >
+
+        <br>
+
+        <button onclick="lightCandle()" id="candleButton">
+            🕯️ LIGHT THE CANDLE
+        </button>
+
+
+        <!-- Birthday Message -->
+        <div class="message">
+
+            <h2>Dear Jhili 💌</h2>
+
+            <p>
+                Today is a very special day.
+                <br><br>
+
+                Because today is the day
+                a beautiful person was born.
+                <br><br>
+
+                May your smile always shine,
+                may your dreams come true,
+                and may your life always be
+                filled with happiness.
+                <br><br>
+
+                <b>Happy Birthday Jhili ❤️</b>
+            </p>
+
         </div>
-        <button class="primary-btn" id="candleBtn">🕯️ Light the Candle</button>
-      </div>
 
-      <div class="letter-card">
-        <div class="envelope">💌</div>
-        <h2>For You, Jhili</h2>
-        <p id="letter"></p>
-      </div>
 
-      <div class="music-card">
-        <span class="music-icon">🎵</span>
-        <div>
-          <strong>Birthday Song</strong>
-          <small>Tap play to enjoy the music</small>
-        </div>
-        <button class="music-btn" id="musicBtn">▶</button>
-      </div>
+        <!-- Music -->
+        <button onclick="playMusic()" class="music-button">
+            🎵 PLAY BIRTHDAY SONG
+        </button>
 
-      <p class="final-message">May your day be filled with love, laughter and countless beautiful moments. ❤️</p>
-      <button class="replay" id="replay">↻ Replay Surprise</button>
     </section>
-  </main>
 
-  <audio id="birthdaySong" preload="auto">
-    <source src="birthday-song.mp3" type="audio/mpeg">
-  </audio>
 
-  <script src="script.js"></script>
+    <!-- MUSIC -->
+
+    <audio id="birthdaySong">
+        <source src="birthday-song.mp3" type="audio/mpeg">
+    </audio>
+
+
+    <script src="script.js"></script>
+
 </body>
 </html>
