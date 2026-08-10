@@ -1,111 +1,432 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Happy Birthday Jhili ❤️</title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>For Jhili — A Little Universe ❤️</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <!-- Background Stars -->
-    <div class="stars"></div>
+    <!-- =================================
+         UNIVERSE BACKGROUND
+    ================================== -->
 
-    <!-- FIRST SCREEN -->
-    <section id="home">
+    <div id="universe">
 
-        <p class="small-text">
-            A SPECIAL SURPRISE FOR YOU
-        </p>
+        <div class="stars"></div>
 
-        <h1>
-            Something Special
-            <br>
-            <span>Is Waiting For You...</span>
-        </h1>
-
-        <img src="gift.png" class="gift">
-
-        <h2>For Jhili ❤️</h2>
-
-        <button onclick="openGift()">
-            🎁 OPEN YOUR SURPRISE
-        </button>
-
-    </section>
+        <div class="nebula nebula-one"></div>
+        <div class="nebula nebula-two"></div>
 
 
-    <!-- BIRTHDAY SCREEN -->
-    <section id="birthday">
+        <!-- =================================
+             INTRO
+        ================================== -->
 
-        <p class="small-text">
-            THE SURPRISE HAS BEGUN ✨
-        </p>
+        <section id="intro">
 
-        <h1>
-            HAPPY BIRTHDAY
-            <br>
-            <span>JHILI ❤️</span>
-        </h1>
+            <div class="intro-star">
+                ✦
+            </div>
 
-        <!-- Cake -->
-        <img
-            src="candle-off.png"
-            id="cake"
-            class="cake"
-        >
-
-        <br>
-
-        <button onclick="lightCandle()" id="candleButton">
-            🕯️ LIGHT THE CANDLE
-        </button>
-
-
-        <!-- Birthday Message -->
-        <div class="message">
-
-            <h2>Dear Jhili 💌</h2>
-
-            <p>
-                Today is a very special day.
-                <br><br>
-
-                Because today is the day
-                a beautiful person was born.
-                <br><br>
-
-                May your smile always shine,
-                may your dreams come true,
-                and may your life always be
-                filled with happiness.
-                <br><br>
-
-                <b>Happy Birthday Jhili ❤️</b>
+            <p class="tiny-text">
+                SOMEWHERE IN THIS UNIVERSE...
             </p>
 
-        </div>
+            <h1>
+                A Little Universe
+                <br>
+                Was Created
+                <br>
+                <span>For You.</span>
+            </h1>
+
+            <p class="intro-text">
+                There is one special person
+                this universe is waiting for.
+            </p>
+
+            <button id="enterBtn">
+                ENTER THE UNIVERSE
+            </button>
+
+        </section>
 
 
-        <!-- Music -->
-        <button onclick="playMusic()" class="music-button">
-            🎵 PLAY BIRTHDAY SONG
-        </button>
+        <!-- =================================
+             JHILI CONSTELLATION
+        ================================== -->
 
-    </section>
+        <section id="constellation">
+
+            <p class="tiny-text">
+                FOLLOW THE LIGHT
+            </p>
+
+            <div class="constellation-name">
+
+                <span>J</span>
+                <span>H</span>
+                <span>I</span>
+                <span>L</span>
+                <span>I</span>
+
+            </div>
+
+            <div class="constellation-lines"></div>
+
+            <p class="constellation-text">
+                Every star has a story.
+                <br>
+                Tonight, this one belongs to you. ❤️
+            </p>
+
+            <button id="continueBtn">
+                FOLLOW THE STAR ✦
+            </button>
+
+        </section>
 
 
-    <!-- MUSIC -->
+        <!-- =================================
+             GIFT PLANET
+        ================================== -->
+
+        <section id="giftSection">
+
+            <p class="tiny-text">
+                OBJECT DISCOVERED
+            </p>
+
+            <h2>
+                A SMALL SURPRISE
+            </h2>
+
+            <div class="planet-orbit">
+
+                <div class="orbit"></div>
+
+                <img src="gift.png"
+                     class="gift-planet"
+                     id="giftPlanet">
+
+            </div>
+
+            <p class="gift-text">
+                Something has been waiting
+                here for you...
+            </p>
+
+            <button id="giftBtn">
+                UNLOCK THE SURPRISE
+            </button>
+
+        </section>
+
+
+        <!-- =================================
+             BALLOON UNIVERSE
+        ================================== -->
+
+        <section id="balloonSection">
+
+            <p class="tiny-text">
+                ONE MORE THING...
+            </p>
+
+            <h2>
+                TOUCH THE STARS 🎈
+            </h2>
+
+            <p class="instruction">
+                Pop every balloon to continue.
+            </p>
+
+            <div class="balloons">
+
+                <button class="balloon balloon-one">
+                    🎈
+                </button>
+
+                <button class="balloon balloon-two">
+                    🎈
+                </button>
+
+                <button class="balloon balloon-three">
+                    🎈
+                </button>
+
+                <button class="balloon balloon-four">
+                    🎈
+                </button>
+
+                <button class="balloon balloon-five">
+                    🎈
+                </button>
+
+                <button class="balloon balloon-six">
+                    🎈
+                </button>
+
+            </div>
+
+            <p id="balloonCount">
+                0 / 6
+            </p>
+
+        </section>
+
+
+        <!-- =================================
+             BIRTHDAY REVEAL
+        ================================== -->
+
+        <section id="birthdayReveal">
+
+            <div class="reveal-light"></div>
+
+            <p class="tiny-text">
+                THE UNIVERSE HAS ONE MESSAGE
+            </p>
+
+            <h1>
+                HAPPY
+                <br>
+                <span>BIRTHDAY</span>
+            </h1>
+
+            <div class="name-reveal">
+                JHILI ❤️
+            </div>
+
+            <div class="confetti-area"></div>
+
+            <button id="cakeBtn">
+                CONTINUE ✦
+            </button>
+
+        </section>
+
+
+        <!-- =================================
+             CANDLE / CAKE
+        ================================== -->
+
+        <section id="cakeSection">
+
+            <p class="tiny-text">
+                MAKE A WISH
+            </p>
+
+            <h2>
+                One Candle.
+                <br>
+                One Wish.
+            </h2>
+
+            <div class="moon-light">
+
+                <img src="candle-off.png"
+                     id="cakeImage"
+                     class="cake">
+
+            </div>
+
+            <button id="candleBtn">
+                LIGHT THE CANDLE 🕯️
+            </button>
+
+            <p id="wishText">
+                Close your eyes...
+                <br>
+                and make a wish.
+            </p>
+
+        </section>
+
+
+        <!-- =================================
+             MUSIC
+        ================================== -->
+
+        <section id="musicSection">
+
+            <p class="tiny-text">
+                THIS SONG IS FOR YOU
+            </p>
+
+            <div class="music-disc">
+
+                <div class="disc-center">
+                    ❤️
+                </div>
+
+            </div>
+
+            <h2>
+                Your Birthday Song 🎵
+            </h2>
+
+            <p class="song-name">
+                A little melody for a special person
+            </p>
+
+            <button id="musicBtn">
+                ▶ PLAY
+            </button>
+
+        </section>
+
+
+        <!-- =================================
+             MEMORIES
+        ================================== -->
+
+        <section id="memorySection">
+
+            <p class="tiny-text">
+                LITTLE MEMORIES
+            </p>
+
+            <h2>
+                Moments That Matter ❤️
+            </h2>
+
+            <div class="memory-frame">
+
+                <img src="photo1.jpg"
+                     id="memoryImage">
+
+            </div>
+
+            <div class="memory-dots">
+
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================
+             LETTER
+        ================================== -->
+
+        <section id="letterSection">
+
+            <p class="tiny-text">
+                ONE LAST MESSAGE
+            </p>
+
+            <div class="envelope"
+                 id="envelope">
+
+                💌
+
+            </div>
+
+            <h2>
+                A Letter For You
+            </h2>
+
+            <button id="openLetterBtn">
+                OPEN THE LETTER
+            </button>
+
+
+            <div class="letter">
+
+                <h3>
+                    Dear Jhili ❤️
+                </h3>
+
+                <p id="letterText"></p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================
+             FINAL UNIVERSE
+        ================================== -->
+
+        <section id="finalSection">
+
+            <div class="final-stars"></div>
+
+            <p class="tiny-text">
+                AND SO...
+            </p>
+
+            <h1>
+                HAPPY
+                <br>
+                BIRTHDAY
+                <br>
+                <span>JHILI ❤️</span>
+            </h1>
+
+            <p class="final-message">
+                In this huge universe,
+                there are billions of stars...
+                <br><br>
+                but tonight,
+                one star shines a little brighter.
+            </p>
+
+            <div class="final-heart">
+                ❤️
+            </div>
+
+            <p class="signature">
+                Made with love, just for you.
+            </p>
+
+        </section>
+
+    </div>
+
+
+    <!-- =================================
+         AUDIO
+    ================================== -->
 
     <audio id="birthdaySong">
-        <source src="birthday-song.mp3" type="audio/mpeg">
+
+        <source src="birthday-song.mp3"
+                type="audio/mpeg">
+
     </audio>
 
+    <audio id="popSound">
+
+        <source src="pop.mp3"
+                type="audio/mpeg">
+
+    </audio>
+
+    <audio id="magicSound">
+
+        <source src="magic.mp3"
+                type="audio/mpeg">
+
+    </audio>
+
+
+    <!-- JAVASCRIPT -->
 
     <script src="script.js"></script>
 
 </body>
+
 </html>
