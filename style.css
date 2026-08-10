@@ -4,326 +4,746 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
-    background: #050308;
+    background: #020107;
     color: white;
     font-family: Arial, sans-serif;
-    min-height: 100vh;
     overflow-x: hidden;
 }
 
-/* Background */
-
-body::before {
-    content: "";
-    position: fixed;
-    width: 500px;
-    height: 500px;
-    background: #ff176f;
-    filter: blur(180px);
-    opacity: 0.15;
-    top: -200px;
-    left: -150px;
-    pointer-events: none;
+button {
+    font-family: inherit;
+    cursor: pointer;
 }
 
-body::after {
-    content: "";
-    position: fixed;
-    width: 450px;
-    height: 450px;
-    background: #8b2cff;
-    filter: blur(180px);
-    opacity: 0.12;
-    bottom: -200px;
-    right: -150px;
-    pointer-events: none;
-}
+/* =========================
+   UNIVERSE
+========================= */
 
-/* Stars */
+#universe {
+    position: relative;
+    min-height: 100vh;
+    overflow: hidden;
+    background:
+        radial-gradient(circle at 50% 20%, #24102d 0%, #090611 35%, #020107 75%);
+}
 
 .stars {
     position: fixed;
     inset: 0;
+    z-index: 0;
     pointer-events: none;
+    opacity: .6;
 
     background-image:
-        radial-gradient(circle, white 1px, transparent 1px);
+        radial-gradient(circle, white 1px, transparent 1.5px);
 
-    background-size: 90px 90px;
+    background-size: 95px 95px;
 
-    opacity: 0.15;
+    animation: starMove 18s linear infinite;
 }
 
-/* Main Screens */
+@keyframes starMove {
+    from {
+        transform: translateY(0);
+    }
 
-#home,
-#birthday {
+    to {
+        transform: translateY(95px);
+    }
+}
+
+/* =========================
+   NEBULA
+========================= */
+
+.nebula {
+    position: fixed;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    filter: blur(150px);
+    opacity: .18;
+    pointer-events: none;
+}
+
+.nebula-one {
+    background: #d5006d;
+    top: -250px;
+    left: -200px;
+}
+
+.nebula-two {
+    background: #5b20ff;
+    right: -250px;
+    bottom: -250px;
+}
+
+/* =========================
+   ALL SECTIONS
+========================= */
+
+section {
     min-height: 100vh;
     width: 100%;
 
+    position: relative;
+    z-index: 2;
+
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
+    align-items: center;
 
     text-align: center;
 
-    padding: 30px 20px;
-
-    position: relative;
-    z-index: 2;
+    padding: 60px 20px;
 }
 
-/* Birthday screen hidden initially */
+/* =========================
+   TEXT
+========================= */
 
-#birthday {
-    display: none;
-}
-
-/* Small Heading */
-
-.small-text {
-    color: #ff75ad;
-    font-size: 11px;
+.tiny-text {
+    color: #e889b4;
+    font-size: 10px;
     letter-spacing: 5px;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
 }
-
-/* Main Heading */
 
 h1 {
-    font-size: clamp(40px, 7vw, 75px);
-    line-height: 1.05;
+    font-size: clamp(45px, 8vw, 90px);
+    line-height: 1.02;
     font-weight: 700;
-
-    margin-bottom: 20px;
-
-    text-shadow:
-        0 0 20px rgba(255, 70, 150, 0.2);
 }
 
 h1 span {
-    color: #ff5b9d;
+    color: #ff5c9d;
 
     text-shadow:
-        0 0 10px #ff2b80,
-        0 0 30px #ff2b80,
-        0 0 60px rgba(255, 43, 128, 0.5);
+        0 0 10px #ff267f,
+        0 0 30px #ff267f,
+        0 0 70px rgba(255, 38, 127, .5);
 }
-
-/* Name */
 
 h2 {
-    color: #ffd5e6;
-    margin: 10px 0 20px;
+    font-size: clamp(28px, 5vw, 48px);
+    margin-bottom: 25px;
 }
 
-/* Gift */
+.intro-text,
+.constellation-text,
+.gift-text,
+.instruction,
+.song-name,
+.final-message {
+    color: #bfa8b6;
+    line-height: 1.8;
+}
 
-.gift {
-    width: 330px;
-    max-width: 80vw;
+/* =========================
+   INTRO STAR
+========================= */
 
-    margin: 10px 0;
+.intro-star {
+    font-size: 80px;
+    color: #fff;
+
+    text-shadow:
+        0 0 10px white,
+        0 0 30px #ff71aa,
+        0 0 70px #ff2780;
+
+    animation: starPulse 2s infinite;
+}
+
+@keyframes starPulse {
+
+    0%,
+    100% {
+        transform: scale(.8);
+        opacity: .6;
+    }
+
+    50% {
+        transform: scale(1.2);
+        opacity: 1;
+    }
+}
+
+/* =========================
+   BUTTON
+========================= */
+
+button {
+    margin-top: 30px;
+
+    padding: 15px 30px;
+
+    color: #ff9dc3;
+
+    background: rgba(255, 60, 140, .04);
+
+    border: 1px solid rgba(255, 100, 160, .6);
+
+    border-radius: 50px;
+
+    letter-spacing: 2px;
+
+    box-shadow:
+        0 0 15px rgba(255, 60, 140, .15);
+
+    transition: .3s;
+}
+
+button:hover {
+    color: white;
+
+    background: #ff3d8d;
+
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 0 20px #ff3d8d,
+        0 0 50px rgba(255, 61, 141, .5);
+}
+
+/* =========================
+   CONSTELLATION
+========================= */
+
+.constellation-name {
+    display: flex;
+    gap: 25px;
+
+    margin: 40px 0;
+
+    font-size: clamp(50px, 10vw, 100px);
+
+    color: #fff;
+
+    text-shadow:
+        0 0 10px white,
+        0 0 30px #ff4f9a,
+        0 0 70px #ff1f7a;
+}
+
+.constellation-name span {
+    animation: letterGlow 2s infinite alternate;
+}
+
+.constellation-name span:nth-child(2) {
+    animation-delay: .3s;
+}
+
+.constellation-name span:nth-child(3) {
+    animation-delay: .6s;
+}
+
+.constellation-name span:nth-child(4) {
+    animation-delay: .9s;
+}
+
+.constellation-name span:nth-child(5) {
+    animation-delay: 1.2s;
+}
+
+@keyframes letterGlow {
+    from {
+        opacity: .35;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* =========================
+   GIFT PLANET
+========================= */
+
+.planet-orbit {
+    position: relative;
+
+    width: 380px;
+    height: 380px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.orbit {
+    position: absolute;
+
+    width: 100%;
+    height: 45%;
+
+    border: 1px solid rgba(255, 105, 170, .4);
+
+    border-radius: 50%;
+
+    transform: rotate(-20deg);
+
+    box-shadow:
+        0 0 20px rgba(255, 70, 150, .15);
+}
+
+.gift-planet {
+    width: 280px;
 
     filter:
-        drop-shadow(0 0 15px #ff3b91)
-        drop-shadow(0 0 35px rgba(255, 40, 130, 0.4));
+        drop-shadow(0 0 20px #ff3f91)
+        drop-shadow(0 0 50px rgba(255, 45, 130, .4));
 
-    animation: floating 3s ease-in-out infinite;
+    animation: planetFloat 4s ease-in-out infinite;
 }
 
-/* Gift Animation */
+@keyframes planetFloat {
 
-@keyframes floating {
+    0%,
+    100% {
+        transform: translateY(0) rotate(-2deg);
+    }
 
-    0% {
+    50% {
+        transform: translateY(-15px) rotate(2deg);
+    }
+}
+
+/* =========================
+   BALLOONS
+========================= */
+
+.balloons {
+    width: min(800px, 95vw);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+
+    gap: 20px;
+
+    margin-top: 40px;
+}
+
+.balloon {
+    border: 0;
+
+    background: transparent;
+
+    font-size: 65px;
+
+    margin: 0;
+
+    padding: 5px;
+
+    box-shadow: none;
+
+    animation: balloonFloat 3s ease-in-out infinite;
+}
+
+.balloon:hover {
+    background: transparent;
+    box-shadow: none;
+    transform: scale(1.2);
+}
+
+.balloon:nth-child(2) {
+    animation-delay: .4s;
+}
+
+.balloon:nth-child(3) {
+    animation-delay: .8s;
+}
+
+.balloon:nth-child(4) {
+    animation-delay: 1.2s;
+}
+
+.balloon:nth-child(5) {
+    animation-delay: 1.6s;
+}
+
+.balloon:nth-child(6) {
+    animation-delay: 2s;
+}
+
+@keyframes balloonFloat {
+
+    0%,
+    100% {
         transform: translateY(0);
     }
 
     50% {
-        transform: translateY(-15px);
-    }
-
-    100% {
-        transform: translateY(0);
+        transform: translateY(-20px);
     }
 }
 
-/* Buttons */
-
-button {
-    border: 1px solid #ff5c9f;
-
-    background: rgba(255, 40, 120, 0.05);
-
-    color: #ff9ac3;
-
-    padding: 15px 28px;
-
-    border-radius: 50px;
-
-    font-size: 13px;
-
-    letter-spacing: 2px;
-
-    cursor: pointer;
-
-    margin-top: 15px;
-
-    transition: 0.3s;
-
-    box-shadow:
-        0 0 10px rgba(255, 60, 140, 0.3);
+#balloonCount {
+    color: #ff72ac;
+    margin-top: 30px;
+    letter-spacing: 3px;
 }
 
-/* Button Hover */
+/* =========================
+   BIRTHDAY REVEAL
+========================= */
 
-button:hover {
-
-    background: #ff3c8c;
-
-    color: white;
-
-    transform: translateY(-3px);
-
-    box-shadow:
-        0 0 15px #ff3c8c,
-        0 0 35px rgba(255, 60, 140, 0.5);
+#birthdayReveal {
+    overflow: hidden;
 }
 
-/* Cake */
+.reveal-light {
+    position: absolute;
+
+    width: 300px;
+    height: 300px;
+
+    background: #ff267d;
+
+    border-radius: 50%;
+
+    filter: blur(130px);
+
+    opacity: .25;
+}
+
+.name-reveal {
+    margin-top: 30px;
+
+    font-size: clamp(35px, 7vw, 70px);
+
+    color: #fff;
+
+    text-shadow:
+        0 0 15px white,
+        0 0 30px #ff4b98,
+        0 0 70px #ff267e;
+}
+
+/* =========================
+   CAKE
+========================= */
+
+.moon-light {
+    width: 430px;
+    height: 430px;
+
+    max-width: 90vw;
+    max-height: 90vw;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(circle,
+        rgba(255, 220, 235, .15),
+        transparent 65%);
+
+    box-shadow:
+        0 0 50px rgba(255, 90, 160, .15);
+}
 
 .cake {
-
     width: 360px;
-    max-width: 85vw;
-
-    margin: 10px 0;
+    max-width: 80%;
 
     filter:
-        drop-shadow(0 0 15px #ff4c99)
-        drop-shadow(0 0 35px rgba(255, 60, 150, 0.3));
+        drop-shadow(0 0 20px #ff4b98);
 
     animation: cakeFloat 3s ease-in-out infinite;
 }
 
 @keyframes cakeFloat {
 
-    0% {
+    0%,
+    100% {
         transform: translateY(0);
     }
 
     50% {
-        transform: translateY(-8px);
-    }
-
-    100% {
-        transform: translateY(0);
+        transform: translateY(-10px);
     }
 }
 
-/* Message Box */
+#wishText {
+    margin-top: 25px;
 
-.message {
+    color: #d8bdca;
 
-    width: min(600px, 90%);
+    line-height: 1.8;
+}
+
+/* =========================
+   MUSIC DISC
+========================= */
+
+.music-disc {
+    width: 240px;
+    height: 240px;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background:
+        repeating-radial-gradient(
+            circle,
+            #111 0px,
+            #111 8px,
+            #1d1d1d 9px,
+            #080808 12px
+        );
+
+    box-shadow:
+        0 0 20px #ff3e8d,
+        0 0 60px rgba(255, 45, 130, .3);
+
+    animation: spin 7s linear infinite;
+}
+
+.disc-center {
+    width: 65px;
+    height: 65px;
+
+    border-radius: 50%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: #ff4b96;
+
+    box-shadow:
+        0 0 20px #ff4b96;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* =========================
+   MEMORIES
+========================= */
+
+.memory-frame {
+    width: 280px;
+    height: 373px;
+
+    padding: 8px;
+
+    background: #171018;
+
+    border: 1px solid rgba(255, 120, 170, .4);
+
+    box-shadow:
+        0 0 30px rgba(255, 60, 140, .2);
+
+    transform: rotate(-2deg);
+}
+
+.memory-frame img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+.memory-dots {
+    display: flex;
+    gap: 10px;
+
+    margin-top: 25px;
+}
+
+.dot {
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: #614250;
+}
+
+.dot.active {
+    background: #ff5c9e;
+
+    box-shadow: 0 0 10px #ff5c9e;
+}
+
+/* =========================
+   LETTER
+========================= */
+
+.envelope {
+    font-size: 90px;
+
+    filter:
+        drop-shadow(0 0 20px #ff4d99);
+
+    animation: envelopeFloat 3s infinite ease-in-out;
+}
+
+@keyframes envelopeFloat {
+
+    50% {
+        transform: translateY(-10px) rotate(3deg);
+    }
+}
+
+.letter {
+    display: none;
+
+    width: min(600px, 90vw);
+
+    margin-top: 35px;
+
+    padding: 35px;
+
+    text-align: left;
+
+    border-radius: 20px;
+
+    background: rgba(255, 255, 255, .04);
+
+    border: 1px solid rgba(255, 100, 160, .25);
+
+    box-shadow:
+        0 0 40px rgba(255, 50, 130, .1);
+
+    backdrop-filter: blur(10px);
+}
+
+.letter h3 {
+    color: #ff79ad;
+
+    margin-bottom: 20px;
+}
+
+#letterText {
+    color: #d7beca;
+
+    line-height: 1.9;
+}
+
+/* =========================
+   FINAL
+========================= */
+
+#finalSection {
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(255, 40, 120, .12),
+            transparent 60%
+        );
+}
+
+.final-message {
+    max-width: 550px;
 
     margin-top: 30px;
 
-    padding: 30px;
-
-    border-radius: 25px;
-
-    background: rgba(255, 255, 255, 0.03);
-
-    border: 1px solid rgba(255, 100, 160, 0.25);
-
-    backdrop-filter: blur(10px);
-
-    box-shadow:
-        0 0 30px rgba(255, 50, 130, 0.08);
+    font-size: 17px;
 }
 
-.message h2 {
+.final-heart {
+    font-size: 70px;
 
-    color: #ff79ae;
+    margin-top: 35px;
 
-    margin-bottom: 15px;
+    animation: heartBeat 1.5s infinite;
+
+    filter:
+        drop-shadow(0 0 20px #ff287e);
 }
 
-.message p {
+@keyframes heartBeat {
 
-    color: #d6b9c7;
+    0%,
+    100% {
+        transform: scale(1);
+    }
 
-    line-height: 1.8;
-
-    font-size: 16px;
+    50% {
+        transform: scale(1.2);
+    }
 }
 
-.message b {
+.signature {
+    margin-top: 30px;
 
-    color: #ff7caf;
+    color: #9d7c8c;
 
-    font-size: 18px;
+    font-size: 12px;
+
+    letter-spacing: 2px;
 }
 
-/* Music Button */
-
-.music-button {
-
-    margin-top: 25px;
-
-    border-color: #d9aa4d;
-
-    color: #f2c86c;
-
-    box-shadow:
-        0 0 15px rgba(220, 170, 70, 0.25);
-}
-
-.music-button:hover {
-
-    background: #c99b3d;
-
-    color: white;
-
-    box-shadow:
-        0 0 20px #d9aa4d;
-}
-
-/* Mobile */
+/* =========================
+   MOBILE
+========================= */
 
 @media (max-width: 600px) {
 
-    #home,
-    #birthday {
-        padding: 25px 15px;
+    section {
+        padding: 40px 15px;
     }
 
-    h1 {
-        font-size: 42px;
+    .constellation-name {
+        gap: 10px;
+        font-size: 55px;
     }
 
-    .gift {
-        width: 280px;
+    .planet-orbit {
+        width: 300px;
+        height: 300px;
+    }
+
+    .gift-planet {
+        width: 220px;
+    }
+
+    .balloon {
+        font-size: 48px;
+    }
+
+    .moon-light {
+        width: 340px;
+        height: 340px;
     }
 
     .cake {
-        width: 290px;
+        width: 300px;
     }
 
-    .message {
-        padding: 22px;
+    .music-disc {
+        width: 200px;
+        height: 200px;
     }
 
-    .small-text {
-        font-size: 9px;
-        letter-spacing: 3px;
+    .memory-frame {
+        width: 240px;
+        height: 320px;
     }
 
-    button {
-        padding: 13px 22px;
+    .letter {
+        padding: 25px;
     }
 }
