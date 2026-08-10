@@ -1,2 +1,0 @@
-Add your MP3 birthday song here and rename it to: birthday-song.mp3
-The website will play it after the user taps the surprise button.
