@@ -1,52 +1,329 @@
-*{box-sizing:border-box}
-:root{--pink:#ff5f9e;--deep:#9b245d;--light:#fff4f8;--gold:#d6a84f}
-body{
-  margin:0; min-height:100vh; font-family:Georgia,"Times New Roman",serif;
-  background:radial-gradient(circle at 50% 10%,#fff 0,#ffeef6 35%,#ffd6e8 100%);
-  color:#4b1930; overflow-x:hidden;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-body:before{content:"";position:fixed;inset:0;pointer-events:none;background:
- radial-gradient(circle at 10% 20%,rgba(255,255,255,.8) 0 3px,transparent 4px),
- radial-gradient(circle at 85% 35%,rgba(255,255,255,.8) 0 2px,transparent 3px);
- background-size:90px 90px;opacity:.7}
-.app{width:min(100%,900px);margin:auto;padding:28px 18px 60px;position:relative;z-index:2}
-.hero,.surprise{min-height:calc(100vh - 50px);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
-.small-title,.section-label{letter-spacing:3px;text-transform:uppercase;font-size:12px;color:#b64c79;margin:0 0 10px}
-h1{font-size:clamp(40px,8vw,78px);line-height:1.02;margin:0;color:#5c1839;text-shadow:0 3px 20px rgba(255,100,160,.18)}
-h1 span{color:var(--pink);font-style:italic}
-.subtitle{max-width:600px;font-family:Arial,sans-serif;color:#7b5263;line-height:1.6;margin:18px auto 12px}
-.gift-wrap{width:min(82vw,390px);aspect-ratio:1/1;display:grid;place-items:center;margin:4px 0 4px}
-.gift{width:100%;filter:drop-shadow(0 20px 25px rgba(130,30,75,.18));animation:float 3s ease-in-out infinite;object-fit:contain}
-@keyframes float{50%{transform:translateY(-10px)}}
-.primary-btn,.music-btn,.replay{
-  border:0;cursor:pointer;font-weight:700;transition:.25s;font-family:Arial,sans-serif
+
+body {
+    background: #050308;
+    color: white;
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
 }
-.primary-btn{background:linear-gradient(135deg,#ff6ba6,#c92e72);color:#fff;padding:15px 26px;border-radius:999px;box-shadow:0 10px 25px rgba(201,46,114,.28);font-size:15px}
-.primary-btn:hover{transform:translateY(-2px);box-shadow:0 14px 30px rgba(201,46,114,.35)}
-.hint{font:12px Arial,sans-serif;color:#a17a89;margin-top:12px}
-.hidden{display:none!important}
-.surprise{gap:24px}
-.cake-card,.letter-card,.music-card{
- width:min(100%,680px);background:rgba(255,255,255,.78);border:1px solid rgba(255,150,190,.45);
- border-radius:30px;padding:28px 22px;box-shadow:0 20px 60px rgba(143,42,87,.12);backdrop-filter:blur(10px)
+
+/* Background */
+
+body::before {
+    content: "";
+    position: fixed;
+    width: 500px;
+    height: 500px;
+    background: #ff176f;
+    filter: blur(180px);
+    opacity: 0.15;
+    top: -200px;
+    left: -150px;
+    pointer-events: none;
 }
-.cake-card h2,.letter-card h2{font-size:clamp(26px,5vw,42px);margin:4px 0 8px;color:#671a3e}
-.cake-area{width:min(80vw,430px);aspect-ratio:3/4;margin:0 auto;display:grid;place-items:center}
-.cake{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 15px 18px rgba(90,20,50,.15))}
-.envelope{font-size:48px}
-.letter-card{padding:34px}
-#letter{font-family:Arial,sans-serif;line-height:1.9;color:#6e4557;max-width:580px;margin:auto;min-height:100px}
-.music-card{display:flex;align-items:center;gap:15px;text-align:left;font-family:Arial,sans-serif}
-.music-icon{font-size:30px}.music-card div{flex:1}
-.music-card strong{display:block;color:#6b1c42}.music-card small{display:block;color:#9a7887;margin-top:4px}
-.music-btn{width:48px;height:48px;border-radius:50%;background:#ff5f9e;color:white;font-size:18px}
-.final-message{font-size:18px;line-height:1.7;max-width:620px;color:#7b3858}
-.replay{background:transparent;color:#a22b61;text-decoration:underline}
-.confetti i{position:fixed;top:-15px;width:8px;height:14px;border-radius:2px;z-index:10;animation:fall 3s linear forwards}
-@keyframes fall{to{transform:translate3d(var(--x),110vh,0) rotate(720deg);opacity:.9}}
-.heart{position:fixed;bottom:-30px;font-size:20px;animation:heartUp 6s linear forwards;opacity:.8;z-index:1}
-@keyframes heartUp{to{transform:translateY(-110vh) translateX(var(--drift)) rotate(20deg);opacity:0}}
-@media(max-width:600px){
- .app{padding-top:12px}.hero{min-height:100vh}
- .cake-card,.letter-card,.music-card{border-radius:22px}
+
+body::after {
+    content: "";
+    position: fixed;
+    width: 450px;
+    height: 450px;
+    background: #8b2cff;
+    filter: blur(180px);
+    opacity: 0.12;
+    bottom: -200px;
+    right: -150px;
+    pointer-events: none;
+}
+
+/* Stars */
+
+.stars {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+
+    background-image:
+        radial-gradient(circle, white 1px, transparent 1px);
+
+    background-size: 90px 90px;
+
+    opacity: 0.15;
+}
+
+/* Main Screens */
+
+#home,
+#birthday {
+    min-height: 100vh;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 30px 20px;
+
+    position: relative;
+    z-index: 2;
+}
+
+/* Birthday screen hidden initially */
+
+#birthday {
+    display: none;
+}
+
+/* Small Heading */
+
+.small-text {
+    color: #ff75ad;
+    font-size: 11px;
+    letter-spacing: 5px;
+    margin-bottom: 20px;
+}
+
+/* Main Heading */
+
+h1 {
+    font-size: clamp(40px, 7vw, 75px);
+    line-height: 1.05;
+    font-weight: 700;
+
+    margin-bottom: 20px;
+
+    text-shadow:
+        0 0 20px rgba(255, 70, 150, 0.2);
+}
+
+h1 span {
+    color: #ff5b9d;
+
+    text-shadow:
+        0 0 10px #ff2b80,
+        0 0 30px #ff2b80,
+        0 0 60px rgba(255, 43, 128, 0.5);
+}
+
+/* Name */
+
+h2 {
+    color: #ffd5e6;
+    margin: 10px 0 20px;
+}
+
+/* Gift */
+
+.gift {
+    width: 330px;
+    max-width: 80vw;
+
+    margin: 10px 0;
+
+    filter:
+        drop-shadow(0 0 15px #ff3b91)
+        drop-shadow(0 0 35px rgba(255, 40, 130, 0.4));
+
+    animation: floating 3s ease-in-out infinite;
+}
+
+/* Gift Animation */
+
+@keyframes floating {
+
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+/* Buttons */
+
+button {
+    border: 1px solid #ff5c9f;
+
+    background: rgba(255, 40, 120, 0.05);
+
+    color: #ff9ac3;
+
+    padding: 15px 28px;
+
+    border-radius: 50px;
+
+    font-size: 13px;
+
+    letter-spacing: 2px;
+
+    cursor: pointer;
+
+    margin-top: 15px;
+
+    transition: 0.3s;
+
+    box-shadow:
+        0 0 10px rgba(255, 60, 140, 0.3);
+}
+
+/* Button Hover */
+
+button:hover {
+
+    background: #ff3c8c;
+
+    color: white;
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 0 15px #ff3c8c,
+        0 0 35px rgba(255, 60, 140, 0.5);
+}
+
+/* Cake */
+
+.cake {
+
+    width: 360px;
+    max-width: 85vw;
+
+    margin: 10px 0;
+
+    filter:
+        drop-shadow(0 0 15px #ff4c99)
+        drop-shadow(0 0 35px rgba(255, 60, 150, 0.3));
+
+    animation: cakeFloat 3s ease-in-out infinite;
+}
+
+@keyframes cakeFloat {
+
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+/* Message Box */
+
+.message {
+
+    width: min(600px, 90%);
+
+    margin-top: 30px;
+
+    padding: 30px;
+
+    border-radius: 25px;
+
+    background: rgba(255, 255, 255, 0.03);
+
+    border: 1px solid rgba(255, 100, 160, 0.25);
+
+    backdrop-filter: blur(10px);
+
+    box-shadow:
+        0 0 30px rgba(255, 50, 130, 0.08);
+}
+
+.message h2 {
+
+    color: #ff79ae;
+
+    margin-bottom: 15px;
+}
+
+.message p {
+
+    color: #d6b9c7;
+
+    line-height: 1.8;
+
+    font-size: 16px;
+}
+
+.message b {
+
+    color: #ff7caf;
+
+    font-size: 18px;
+}
+
+/* Music Button */
+
+.music-button {
+
+    margin-top: 25px;
+
+    border-color: #d9aa4d;
+
+    color: #f2c86c;
+
+    box-shadow:
+        0 0 15px rgba(220, 170, 70, 0.25);
+}
+
+.music-button:hover {
+
+    background: #c99b3d;
+
+    color: white;
+
+    box-shadow:
+        0 0 20px #d9aa4d;
+}
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+    #home,
+    #birthday {
+        padding: 25px 15px;
+    }
+
+    h1 {
+        font-size: 42px;
+    }
+
+    .gift {
+        width: 280px;
+    }
+
+    .cake {
+        width: 290px;
+    }
+
+    .message {
+        padding: 22px;
+    }
+
+    .small-text {
+        font-size: 9px;
+        letter-spacing: 3px;
+    }
+
+    button {
+        padding: 13px 22px;
+    }
 }
